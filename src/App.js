@@ -1,9 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import { DataStore } from '@aws-amplify/datastore';
-import { Anuncio } from './models';
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
 
-const models = await DataStore.query(Anuncio);
-console.log(models);
+function App() {
+  return (
+    <div>
+      <Welcome name="Sara" />      <Welcome name="Cahal" />      <Welcome name="Edite" />    </div>
+  );
+}
 
-export default App;
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
