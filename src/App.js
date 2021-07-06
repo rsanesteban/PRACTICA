@@ -7,7 +7,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Su prima la coja.
+const models = await DataStore.query(Usuario);
+console.log(models);
         </p>
       </header>
     </div>
