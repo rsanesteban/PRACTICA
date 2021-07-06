@@ -1,67 +1,53 @@
 import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
+function Navigation(props) {
+  return (
+    <div className="navigation">
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container">
+          <Link class="navbar-brand" to="/">
+            React Multi-Page Website
+          </Link>
 
-class Square extends React.Component {
-  render() {
-    return (
-      <button className="square">
-        {/* TODO */}
-      </button>
-    );
-  }
+          <div>
+            <ul class="navbar-nav ml-auto">
+              <li
+                class={`nav-item  ${
+                  props.location.pathname === "/" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/">
+                  Home
+                  <span class="sr-only">(current)</span>
+                </Link>
+              </li>
+              <li
+                class={`nav-item  ${
+                  props.location.pathname === "/about" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/about">
+                  About
+                </Link>
+              </li>
+              <li
+                class={`nav-item  ${
+                  props.location.pathname === "/contact" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/contact">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  );
 }
 
-class Board extends React.Component {
-  renderSquare(i) {
-    return <Square />;
-  }
-
-  render() {
-    const status = 'Next player: X';
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
-
-class Game extends React.Component {
-  render() {
-    return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-        </div>
-      </div>
-    );
-  }
-}
-
-// ========================================
-
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
+export default withRouter(Navigation);
