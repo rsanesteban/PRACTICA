@@ -1,18 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { DataStore } from '@aws-amplify/datastore';
+import { Anuncio } from './models';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-const models = await DataStore.query(Usuario);
+const models = await DataStore.query(Anuncio);
 console.log(models);
-        </p>
-      </header>
-    </div>
-  );
-}
 
 export default App;
