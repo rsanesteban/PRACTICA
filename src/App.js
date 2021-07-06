@@ -5,7 +5,9 @@ function Welcome(props) {
 function App() {
   return (
     <div>
-      <Welcome name="Sara" />      <Welcome name="Cahal" />      <Welcome name="Edite" />    </div>
+      <Welcome name="Sara" />
+      <Welcome name="Cahal" />
+      <Welcome name="Edite" />    </div>
   );
 }
 
